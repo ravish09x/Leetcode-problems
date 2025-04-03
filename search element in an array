@@ -1,0 +1,29 @@
+#include<stdio.h>
+char stack[100];
+int size;
+int top=-1;
+void push(){
+	if(top>=size-1){
+		printf("\n stack overflow");
+	}
+	else{
+		top++;
+		stack[top]=item;
+	}
+}
+void infixtopstfix(char infix[],char postfix){
+	int i,j;
+	char item,x;
+	push('(');
+	strcat(infix,")");
+}
+int main(){
+	char infix[100],postfix[100];
+	printf("enter size of stack");
+	scanf("%d",&size);
+	//let us assume infix expression contains single digit numbers and characters
+	printf("enter infix expression");
+	scanf("%s",infix);
+	infixtopostfix(infix,postfix);
+	
+}
