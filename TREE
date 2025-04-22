@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Define the structure for a node
+struct node {
+    struct node* left;
+    int data;
+    struct node* right;
+};
+
+// Declare the root of the tree
+struct node* root = NULL;
+
+// Function to create a new node
+struct node* createnode(int num) {
+    struct node* ptr = (struct node*)malloc(sizeof(struct node));
+    ptr->left = NULL;
+    ptr->data = num;
+    ptr->right = NULL;
+    return ptr;
+}
+
+// Function for preorder traversal
+void preorder(struct node* root) {
+    if (root != NULL) {
+        printf("%d ", root->data);  // Visit the root
+        preorder(root->left);      // Traverse the left subtree
+        preorder(root->right);     // Traverse the right subtree
+    }
+}
+
+int main() {
+    // Creating the binary tree
+    root = createnode(12);
+    struct node* a = createnode(15);
+    struct node* b = createnode(20);
+    root->left = a;
+    root->right = b;
+
+    struct node* c = createnode(25);
+    struct node* d = createnode(30);
+    a->left = c;
+    a->right = d;
+
+    struct node* e = createnode(40);
+    struct node* f = createnode(45);
+    b->left = e;
+    b->right = f;
+
+    // Perform preorder traversal and print the output
+    printf("Preorder Traversal: ");
+    preorder(root);
+    printf("\n");
+
+    return 0;
+}
